@@ -13,6 +13,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { AuthService } from './_services/auth.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +26,14 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
     BoardModeratorComponent,
     BoardUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [httpInterceptorProviders],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+  ],
+  providers: [httpInterceptorProviders, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
